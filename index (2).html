@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Río de Colores - Caño Cristales</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: #f0f8f8;
+    }
+
+    header {
+      background: linear-gradient(90deg, #006400, #228B22);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* cambio: título negro */
+    header h1 {
+      color: black;
+    }
+
+    h2 {
+      color: #006400;
+    }
+
+    /* Botonera */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: #e0e0e0;
+      padding: 10px;
+    }
+
+    nav button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #228B22;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover {
+      background: #32CD32;
+      transform: scale(1.05);
+    }
+
+    nav button.activo {
+      background: #FFD700;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* Secciones */
+    .seccion {
+      display: none;
+      padding: 20px;
+      background: white;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .seccion.activa {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Imágenes */
+    .plato, .hotel {
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .plato img, .hotel img {
+      width: 300px;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+      background: #fff;
+    }
+
+    .plato img:hover, .hotel img:hover {
+      transform: scale(1.03);
+    }
+
+    /* responsive: imágenes fluidas y botones adaptados en móvil */
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      nav button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+      }
+      .plato img, .hotel img {
+        width: 90%;
+      }
+      .seccion { margin: 12px; padding: 16px; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #e0e0e0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Caño Cristales: El Río de Colores 🌈</h1>
+  </header>
+
+  <!-- Botonera -->
+  <nav>
+    <button onclick="mostrar('historia', this)" class="activo">Historia</button>
+    <button onclick="mostrar('gastronomia', this)">Gastronomía</button>
+    <button onclick="mostrar('hospedaje', this)">Hospedaje</button>
+    <button onclick="mostrar('mapa', this)">Mapa</button>
+    <button onclick="mostrar('galeria', this)">Galería</button>
+  </nav>
+
+  <!-- Secciones -->
+  <div id="historia" class="seccion activa">
+    <h2>Historia y cultura</h2>
+    <p>
+      Caño Cristales, conocido como <b>“el río más hermoso del mundo”</b>, está ubicado en la Sierra de la Macarena,
+      en el Meta, Colombia. Su fama proviene de sus cinco colores: rojo, amarillo, verde, azul y negro,
+      producidos por plantas acuáticas únicas llamadas <i>Macarenia clavigera</i>La historia de Caño Cristales, el "Río de los Cinco Colores", está marcada por su descubrimiento por ganaderos colombianos en 1969 y su posterior aislamiento debido al conflicto armado en la región de La Macarena, lo que prohibió el turismo hasta 2002. A pesar de conocerse ancestralmente por los pueblos indígenas, el sitio se abrió de nuevo al turismo en las últimas décadas, tras el proceso de paz, y su fama se consolidó gracias a fotografías de un explorador colombiano y la popularización del transporte aéreo. tambien Descubrimiento Moderno: En 1969, un grupo de ganaderos colombianos descubrió el río en plena floración, revelando sus colores únicos al público moderno. 
+    Conflicto Armado: La región de La Macarena se convirtió en un centro de actividades militantes y producción de cocaína, lo que llevó a prohibir el turismo por razones de seguridad en 1980. 
+    Cierre del Parque: La actividad turística fue totalmente prohibida entre finales de los 80 y 2002 debido a la inseguridad en la zona, lo que mantuvo al Caño como una joya escondida en la selva. 
+    </p>
+    <p>
+      Durante muchos años, la zona estuvo cerrada al turismo por motivos de seguridad. Hoy en día, 
+      es un destino natural protegido que recibe visitantes de todo el mundo. Su conservación es clave para 
+      la biodiversidad colombiana.
+    </p>
+  </div>
+
+  <div id="gastronomia" class="seccion">
+    <h2>Gastronomía local</h2>
+    <div class="plato">
+      <b>La cachama</b> (pescado típico de la región).  
+      <br>
+      <img class="auto-fallback" 
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSchRNndtJwssq7SQss_i-Zj6A26AR_Ajtxjw&s">
+    </div>
+    <div class="plato">
+      <b>Sancocho llanero</b> con carne y plátano.  
+      <br>
+      <img class="auto-fallback"
+           src="https://i.ytimg.com/vi/DPr7wRpkpLc/maxresdefault.jpg">
+    </div>
+    <div class="plato">
+      <b>Arepas de maíz pelao</b>.  
+      <br>
+      <img class="auto-fallback"
+           src="https://www.laylita.com/recetas/wp-content/uploads/2023/03/Receta-de-las-tradicionales-arepas-de-maiz-pilado.jpg">
+    </div>
+    <div class="plato">
+      <b>Jugo de copoazú y arazá</b>, frutas amazónicas refrescantes.  
+      <br>
+      <img class="auto-fallback"
+           src="https://www.amazonate.com/hubfs/BLOG/BLOG%2013/Copoazu%CC%81.jpg">
+    </div>
+  </div>
+
+  <div id="hospedaje" class="seccion">
+    <h2>Hospedaje en La Macarena</h2>
+    <div class="hotel">
+      <b>Hotel Ecológico La Fuente</b> 🌿  
+      <p>Un lugar rodeado de naturaleza, ideal para descansar tras las caminatas.</p>
+      <img class="auto-fallback"
+           src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/partner-images/ce/fb/8ab3f5cdef4c3e1a930c027624170a138bf2e4751df2ad8381d7502553a2.jpeg">
+    </div>
+    <div class="hotel">
+      <b>Posada Nativa Doña María</b> 🏡  
+      <p>Atendida por locales, ofrece una experiencia auténtica con comida casera.</p>
+      <img class="auto-fallback"
+           src="https://q-xx.bstatic.com/xdata/images/hotel/square600/222735040.webp?k=02876f790934918e2b72f956b3708c02f415aafb740c9c5bed91da8e805c8688&o=">
+    </div>
+    <div class="hotel">
+      <b>Zona de Camping Río Claro</b> ⛺  
+      <p>Perfecto para aventureros que quieran dormir cerca de la selva y el río.</p>
+      <img class="auto-fallback"
+           src="https://static.wixstatic.com/media/6d244d_963a5681c7d44fb6bfd7ddbfcb99fe77.jpg/v1/fill/w_720,h_409,al_c,q_80,enc_avif,quality_auto/6d244d_963a5681c7d44fb6bfd7ddbfcb99fe77.jpg">
+    </div>
+  </div>
+
+  <div id="mapa" class="seccion">
+    <h2>Mapa interactivo</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7943.45658268912!2d-73.794!3d2.193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e23c730a3e5f9b9%3A0x4dc0ff6c5edc54b5!2sCa%C3%B1o%20Cristales!5e0!3m2!1ses!2sco!4v1694631999999" 
+      width="100%" 
+      height="400" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <div id="galeria" class="seccion">
+    <h2>Galería</h2>
+    <img class="auto-fallback"
+         src="https://upload.wikimedia.org/wikipedia/commons/d/db/CA%C3%91O_CRISTALES%2C_EL_R%C3%8DO_DE_COLORES.jpg"
+         data-fallback="https://via.placeholder.com/500x300?text=Galer%C3%ADa+no+disponible"
+         alt="Caño Cristales" width="400">
+    <div>
+      <img class="auto-fallback"
+           src="https://media.istockphoto.com/id/1201456158/es/foto/colombia-cano-cristales-national-park-serrania-de-la-macarena.jpg?s=612x612&w=0&k=20&c=l-3ZutOU_ieNwfbSYAYS2QLJVGDdUf5BLo4ktxVRuPc="
+           width="400">
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Página informativa sobre Caño Cristales</p>
+  </footer>
+
+  <script>
+    // función para cambiar secciones
+    function mostrar(id, boton) {
+      document.querySelectorAll('.seccion').forEach(seccion => {
+        seccion.classList.remove('activa');
+      });
+      document.getElementById(id).classList.add('activa');
+      document.querySelectorAll('nav button').forEach(b => b.classList.remove('activo'));
+      boton.classList.add('activo');
+    }
+
+    // fallback automático de imágenes
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('img.auto-fallback').forEach(img => {
+        img.onerror = function() {
+          const fallback = img.getAttribute('data-fallback') || 'https://via.placeholder.com/300x200?text=Imagen+no+disponible';
+          if (img.src !== fallback) {
+            img.src = fallback;
+          }
+        };
+      });
+    });
+  </script>
+</body>
+</html>
