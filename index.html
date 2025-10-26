@@ -211,6 +211,31 @@ Por ser rocoso el lecho de Caño Cristales, basta una lluvia de moderada intensi
     
     </div>
   </div>
+  <div id="opiniones" class="seccion">
+<h2>Deja tu opinion</h2>
+    <form id="formOpiniones">
+      <label>Tu nombre</label>
+      <input type="text" id="nombre" placeholder="tu nombre" required>
+      <label>calificacion:</label>
+      <select id="calificacion" required>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+      <label>Tu comentario:</label>
+      <textarea id="comentario" rows="4" placeholder="Escribe tu opinion..." required></textarea>
+      <button type="submit">Enviar opinion</button>
+    </form>
+    <h3>Opiniones de visitantes:</h3>}
+    <div id="listaOpiniones">
+      <p>Aun n hay opiniones. ¡se el primero en comentar!</p>
+    </div>
+        
+
+    
+  </div>
 
     </div>
 
@@ -229,6 +254,36 @@ Por ser rocoso el lecho de Caño Cristales, basta una lluvia de moderada intensi
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('activo'));
       boton.classList.add('activo');
     }
+    // sistema de opiniones
+    document.getElementById('formOpiniones').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const calificacion = document.getElementById('calificacion').value;
+      const comentario = document.getElementById('comentario').value.trim();
+      const lista = document.getElementById('listaOpiniones');
+
+      if (!nombre || !calificacion || !comentario) {
+        alert('Por favor completa todos los campos.');
+        return;
+      }
+
+      // Crear elemento para mostrar la opinión
+      const div = document.createElement('div');
+      div.classList.add('opinion');
+      div.innerHTML = `
+        <strong>${nombre}</strong> 
+        <span class="estrellas">${'⭐'.repeat(calificacion)}</span>
+        <p>${comentario}</p>
+      `;
+
+      // Quita el texto inicial si es la primera opinión
+      if (lista.querySelector('p')) lista.innerHTML = '';
+      lista.appendChild(div);
+
+      // Limpia el formulario
+      document.getElementById('formOpiniones').reset();
+    });
 
     // fallback automático de imágenes
     document.addEventListener('DOMContentLoaded', function() {
