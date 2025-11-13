@@ -262,6 +262,8 @@ Por ser rocoso el lecho de Caño Cristales, basta una lluvia de moderada intensi
 
   <script>
     // función para cambiar secciones
+    function mostrar(seccion, boton) {
+      const secciones = document.querySelectorAll('seccion');secciones.forEach(sec => sec.classList.remove('activa'));
     function mostrar(id, boton) {
       document.querySelectorAll('.seccion').forEach(seccion => {
         seccion.classList.remove('activa');
