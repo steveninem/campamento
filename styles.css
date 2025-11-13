@@ -166,5 +166,3 @@ body {
   color: #ffca28;
   font-size: 1.2em;
 }
-.seccion { display: none; }
-.seccion.activa { display: block; }    
